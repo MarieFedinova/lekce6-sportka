@@ -7,6 +7,10 @@
 // <span class="cislo">8</span>
 // ... který pak přidej dovnitř prvku <div id="vyherni-cisla">:
 
+function losuj() {
+let vyherniCisla = document.querySelector('#vyherni-cisla');
+let historie = document.querySelector('#historie');
+vyherniCisla.innerHTML = '';
 let osudi = [];
 
 for (let i = 1; i<=48; i++) {
@@ -16,16 +20,16 @@ for (let i = 1; i<=48; i++) {
 let tazenaCisla = [];
 
 for (let i = 0; i < 7; i = i + 1) {
-    let vyherniIndex = Math.floor(Math.random() * osudi.length);
-    let vyherniCislo = osudi[vyherniIndex];
-    tazenaCisla.push(vyherniCislo);
-    osudi.splice(vyherniIndex, 1);
-    console.log(osudi);
-    console.log(tazenaCisla);
+        let vyherniIndex = Math.floor(Math.random() * osudi.length);
+        let vyherniCislo = osudi[vyherniIndex];
+        tazenaCisla.push(vyherniCislo);
+        osudi.splice(vyherniIndex, 1);
+        console.log(osudi);
+        console.log(tazenaCisla);
 }
 
-let vyherniCisla = document.querySelector('#vyherni-cisla');
-
 for (let i = 0; i < tazenaCisla.length; i++) {
-    vyherniCisla.innerHTML += '<span class="cislo">' + tazenaCisla[i]; + '</span>';
+        vyherniCisla.innerHTML += '<span class="cislo">' + tazenaCisla[i]; + '</span>';
+        historie.innerHTML += '<span>' + tazenaCisla[i]; + '</span>';
+}
 }
